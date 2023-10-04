@@ -7,6 +7,9 @@ function App() {
   const [tip1, setTip1] = useState(0);
   const [tip2, setTip2] = useState(0);
 
+  const totalTip = tip1 + tip2;
+  const tip = (bill * totalTip).toFixed(2);
+
   const handleOnClick = () => {
     setBill(0);
     setTip1(0);
@@ -39,8 +42,8 @@ function App() {
         How did your friend like the service?
       </Rating>
       <h1>
-        You pay ${(bill + bill * (tip1 + tip2)).toFixed(2)} (${bill} +
-        ${(bill * (tip1 + tip2)).toFixed(2)})
+        You pay ${(bill + bill * totalTip).toFixed(2)} (${bill} + $
+        {tip})
       </h1>
       <button onClick={handleOnClick}>Reset</button>
     </div>
